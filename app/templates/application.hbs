@@ -14,10 +14,17 @@ Data {{input type="date" value=realizacao}}
 
 <h1>Eventos</h1>
 <ul>
-    {{#each model as |evento| }}
+    {{#each model as |painel| }}
     <li>
-        {{evento}}
+        {{painel.id}} {{painel.nome}}
 <button type="button" {{action 'removerEvento' evento}} > REMOVER </button>
+<ul>
+    {{#each painel.jogos as |jogo|}}
+    <li>
+        {{jogo.casa}} x {{jogo.fora}}
+    </li>
+    {{/each}}
+</ul>
     </li>
     {{/each}}
 </ul>

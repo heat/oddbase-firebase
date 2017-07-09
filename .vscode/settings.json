@@ -1,0 +1,14 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "editor.fontSize": 10,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/bower_component": true,
+        "**/node_modules": true,
+        "**/tmp": true,
+        "**/dist": true
+    }
+}

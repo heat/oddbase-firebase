@@ -45,7 +45,7 @@ export default Ember.Controller.extend({
                 casa,
                 fora,
                 campeonato,
-                realizacao: new Date()
+                inicio: new Date()
             });
 
             evento.get('bancas').addObject(banca);
