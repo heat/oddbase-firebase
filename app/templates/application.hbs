@@ -1,5 +1,25 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<h4>Fonte</h4>
+{{input type="text" value=fonte placeholder="Nome" }} 
+<button type="button" class="btn btn-default" {{action 'novaFonte'}} >SALVAR</button>
+<h1>Novo</h1>
+Casa {{input type="text" value=casa}}
+Fora {{input type="text" value=fora}}
+Campeonato {{input type="text" value=campeonato}}
+
+Data {{input type="date" value=realizacao}}
+
+
+<button type="button" class="btn btn-default" {{action 'novoEvento'}} >SALVAR</button>
+
+
+<h1>Eventos</h1>
+<ul>
+    {{#each model as |evento| }}
+    <li>
+        {{evento}}
+<button type="button" {{action 'removerEvento' evento}} > REMOVER </button>
+    </li>
+    {{/each}}
+</ul>
 
 {{outlet}}
