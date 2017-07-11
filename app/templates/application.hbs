@@ -11,22 +11,23 @@ Data {{input type="date" value=realizacao}}
 
 <button type="button" class="btn btn-default" {{action 'novoEvento'}} >SALVAR</button>
 
-
+<h3>Restricao</h3>
+{{ model.restricao.id }}
+{{ model.restricao.nome }}
 <h1>Eventos</h1>
+        {{model.banca.id}} {{model.banca.nome}}:
 <ul>
-    {{#each model as |painel| }}
+    {{#each model.banca.painel as |jogo|}}
     <li>
-        {{painel.id}} {{painel.nome}}
-<button type="button" {{action 'removerEvento' evento}} > REMOVER </button>
-<ul>
-    {{#each painel.jogos as |jogo|}}
-    <li>
-        {{jogo.casa}} x {{jogo.fora}}
+        restricao: {{ jogo.restricao.nome }}
+        {{jogo.evento.casa}} x {{jogo.evento.fora}}
+        <br>taxas:
+        {{#each jogo.cotacao.taxas as |cotacao|}}
+            {{sy-odd-item cotacao=cotacao restricao=jogo.restricao }}
+            {{cotacao.nome}} {{cotacao.taxa}}
+        {{/each}}
     </li>
     {{/each}}
 </ul>
-    </li>
-    {{/each}}
-</ul>
-
+    
 {{outlet}}

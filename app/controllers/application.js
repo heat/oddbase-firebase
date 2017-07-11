@@ -37,32 +37,28 @@ export default Ember.Controller.extend({
 
         },
         novoEvento() {
+            let store = this.get('store');
             let  {casa, fora, campeonato, realizacao} = this.getProperties('casa', 'fora', 'campeonato', 'realizacao');
 
-            let { fonte, banca } = this.getProperties('fonte', 'banca');
+            let restricao = this.get('model.restricao');
 
-            let evento = this.get('store').createRecord('evento', {
+            let banca = this.get('model.banca');
+            
+            let evento = store.createRecord('evento', {
                 casa,
                 fora,
                 campeonato,
                 inicio: new Date()
             });
-
-            evento.get('bancas').addObject(banca);
-
-            let odd = this.get('store').createRecord('taxa', {
-                            nome: 'Casa',
-                            valor: 1.02
-                        });
             evento.save()
-                .then( c => {
-                    let v = this.get('store').createRecord('evento-fonte', {
-                        evento: c,
+                .then( ev => {
+                    let j = store.createRecord('jogo', {
+                        exibir: true
                     });
-                    v.get('taxas').addObject(odd);
-                    fonte.get('odds').addObject(v);
-                    fonte.save();
-                    return c;
+                    j.set('evento', ev);
+                    j.set('restricao', restricao);
+                    banca.get('painel').addObject(j);
+                    return banca.save();
                 })
                 .catch(console.log)
                 .finally(console.log);
