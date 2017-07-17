@@ -2,5 +2,5 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
 
-    nome: DS.attr('string'),
+    regras: DS.hasMany('aposta/regra', { async: false, inverse: null })
 });

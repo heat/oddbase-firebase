@@ -23,8 +23,8 @@ Data {{input type="date" value=realizacao}}
         {{jogo.evento.casa}} x {{jogo.evento.fora}}
         <br>taxas:
         {{#each jogo.cotacao.taxas as |cotacao|}}
-            {{sy-odd-item cotacao=cotacao restricao=jogo.restricao }}
-            {{cotacao.nome}} {{cotacao.taxa}}
+            real -> {{cotacao.nome}} {{cotacao.taxa}}
+            {{cotacao.nome}} {{sy-odd-item cotacao=cotacao regras=jogo.restricao.regras }} <br>
         {{/each}}
     </li>
     {{/each}}

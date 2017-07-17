@@ -1,1 +1,18 @@
-{{yield}}
+{{taxa}}
+<ul>
+    <li>
+
+    {{regra.codigo}}
+    {{regra.exibir}}
+    {{regra.limite}}
+    {{regra.mult}}
+    </li>
+    {{#each regras as |regra|}}
+    <li>
+        {{regra.codigo}}
+        {{regra.exibir}}
+        {{regra.limite}}
+        {{regra.mult}}
+    </li>
+    {{/each}}
+</ul>
