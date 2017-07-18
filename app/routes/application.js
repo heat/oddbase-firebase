@@ -5,8 +5,8 @@ export default Ember.Route.extend({
 
     model() {
         return RSVP.hash({
-            banca: this.get('store').find('banca', 'j9k4jd'),
-            restricao: this.get('store').find('restricao', 'j9k4jd'),
+            banca: this.get('store').findRecord('banca', 'j9k4jd', { include: 'cotacao, restricao' }),
+            restricao: this.get('store').findRecord('restricao', 'j9k4jd'),
         });
     }
 });

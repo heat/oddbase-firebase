@@ -21,11 +21,17 @@ Data {{input type="date" value=realizacao}}
     <li>
         restricao: {{ jogo.restricao.nome }}
         {{jogo.evento.casa}} x {{jogo.evento.fora}}
-        <br>taxas:
+        <br>c:
         {{#each jogo.cotacao.taxas as |cotacao|}}
             real -> {{cotacao.nome}} {{cotacao.taxa}}
             {{cotacao.nome}} {{sy-odd-item cotacao=cotacao regras=jogo.restricao.regras }} <br>
         {{/each}}
+
+        - - - - - - 
+        {{#each jogo.taxas as |cotacao|}}
+            real -> {{cotacao.nome}} {{cotacao.taxa}}
+        {{/each}}
+
     </li>
     {{/each}}
 </ul>
