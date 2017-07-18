@@ -28,5 +28,8 @@ export default DS.Model.extend({
    */
   exibir: DS.attr('boolean', { defaultValue: true }),
 
+  /**
+   * Fixa o valor de cotacao da odd
+   */
   fixo: DS.attr('number'),
 });
